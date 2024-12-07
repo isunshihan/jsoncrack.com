@@ -3,7 +3,6 @@ import type { ModalProps } from "@mantine/core";
 import { Modal, Stack, Text, ScrollArea, Button } from "@mantine/core";
 import { CodeHighlight } from "@mantine/code-highlight";
 import { event as gaEvent } from "nextjs-google-analytics";
-import { VscLock } from "react-icons/vsc";
 import useGraph from "src/containers/Editor/components/views/GraphView/stores/useGraph";
 import useModal from "src/store/useModal";
 
@@ -33,15 +32,6 @@ export const NodeModal = ({ opened, onClose }: ModalProps) => {
             <CodeHighlight code={nodeData} miw={350} maw={600} language="json" withCopyButton />
           </ScrollArea.Autosize>
         </Stack>
-        <Button
-          onClick={() => {
-            setVisible("upgrade")(true);
-            gaEvent("click_node_edit");
-          }}
-          rightSection={<VscLock strokeWidth={0.5} />}
-        >
-          Edit
-        </Button>
         <Text fz="xs" fw={500}>
           JSON Path
         </Text>

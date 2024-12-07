@@ -89,10 +89,10 @@ export const Section1 = () => {
             order={2}
             c="gray.9"
           >
-            Don&apos;t waste time with JSON formatters
+            Don't waste time with JSON formatters
           </Title>
           <Text my="md" c="gray.6" fz={16} maw={510}>
-            The days of getting lost in lines of code are over. JSON Crack gives you the most
+            The days of getting lost in lines of code are over. JSONFORMAT gives you the most
             optimal view of your data so you can make insights faster than ever.
           </Text>
           <List

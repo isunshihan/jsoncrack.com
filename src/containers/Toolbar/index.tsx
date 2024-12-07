@@ -4,7 +4,6 @@ import styled from "styled-components";
 import toast from "react-hot-toast";
 import { AiOutlineFullscreen } from "react-icons/ai";
 import { FiDownload } from "react-icons/fi";
-import { LuCrown } from "react-icons/lu";
 import { SearchInput } from "src/containers/Toolbar/SearchInput";
 import { type FileFormat, formats } from "src/enums/file.enum";
 import { JSONCrackLogo } from "src/layout/JsonCrackLogo";
@@ -59,57 +58,17 @@ export const Toolbar = ({ isWidget = false }: ToolbarProps) => {
 
   return (
     <StyledTools>
-      {isWidget && <Logo />}
-      {!isWidget && (
-        <Group gap="xs" justify="left" w="100%" style={{ flexWrap: "nowrap" }}>
-          <StyledToolElement title="JSON Crack">
-            <Flex gap="xs" align="center" justify="center">
-              <JSONCrackLogo fontSize="0.8rem" hideLogo />
-            </Flex>
-          </StyledToolElement>
-
-          <Select
-            defaultValue="json"
-            size="xs"
-            value={format}
-            onChange={e => setFormat(e as FileFormat)}
-            miw={80}
-            w={120}
-            data={formats}
-            allowDeselect={false}
-          />
-
-          <FileMenu />
-          <ViewMenu />
-          <ToolsMenu />
-        </Group>
-      )}
-      <Group gap="xs" justify="right" w="100%" style={{ flexWrap: "nowrap" }}>
-        {!isWidget && (
-          <StyledToolElement onClick={() => setVisible("upgrade")(true)} $highlight>
-            <Flex align="center" gap="6">
-              <LuCrown size="16" />
-              <Text c="bright" fw={600} fz="xs">
-                Unlock advanced features
-              </Text>
-            </Flex>
-          </StyledToolElement>
-        )}
-
+      <Group gap={2}>
+        <Logo />
+        <FileMenu />
+        <ViewMenu />
+        <ToolsMenu />
+        <OptionsMenu />
+        <ZoomMenu />
+      </Group>
+      <Group gap={8}>
         <SearchInput />
-        {!isWidget && (
-          <>
-            <StyledToolElement title="Save as Image" onClick={() => setVisible("download")(true)}>
-              <FiDownload size="18" />
-            </StyledToolElement>
-            <ZoomMenu />
-            <AccountMenu />
-            <OptionsMenu />
-            <StyledToolElement title="Fullscreen" $hide={isWidget} onClick={fullscreenBrowser}>
-              <AiOutlineFullscreen size="18" />
-            </StyledToolElement>
-          </>
-        )}
+        <AccountMenu />
       </Group>
     </StyledTools>
   );

@@ -143,17 +143,6 @@ export const Navbar = () => {
         </Center>
         <Right>
           <Button
-            component="a"
-            href="https://todiagram.com"
-            variant="subtle"
-            color="black"
-            size="md"
-            radius="md"
-            rel="noopener"
-          >
-            Upgrade
-          </Button>
-          <Button
             radius="md"
             component="a"
             color="#202842"
